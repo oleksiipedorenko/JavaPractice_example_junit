@@ -62,7 +62,7 @@ class ExampleServiceTest {
 		assertThrows(IllegalArgumentException.class, () -> service.createEntity(expectedName, expectedDate));
 	}
 
-	@DisplayName("Fail on null name")
+	@DisplayName("Fail on null name ")
 	@Test
 	public void testCase3() {
 		//Given
