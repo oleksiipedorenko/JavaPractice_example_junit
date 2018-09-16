@@ -62,4 +62,18 @@ class ExampleServiceTest {
 		assertThrows(IllegalArgumentException.class, () -> service.createEntity(expectedName, expectedDate));
 	}
 
+	@DisplayName("Fail on null name")
+	@Test
+	public void testCase3() {
+		//Given
+		final LocalDate currentDate = LocalDate.now();
+		final LocalDate expectedDate = currentDate.minusYears(35);
+
+		when(timeService.currentDate()).thenReturn(currentDate);
+		when(idGenerator.nextId()).thenReturn(14L);
+
+		//When
+		assertThrows(IllegalArgumentException.class, () -> service.createEntity(null, expectedDate));
+	}
+
 }
